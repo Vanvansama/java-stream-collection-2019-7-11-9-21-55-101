@@ -20,16 +20,16 @@ public class AddTest {
         assertThat(add.getSumOfEvens(rightBorder, leftBorder)).isEqualTo(30);
     }
 
-//    @Test
-//    public void should_get_sum_of_odds() {
-//        //求leftBorder 和rightBorder之间的奇数和
-//        int leftBorder = 1;
-//        int rightBorder = 10;
-//
-//        Add add = new Add();
-//        assertThat(add.getSumOfOdds(leftBorder, rightBorder)).isEqualTo(25);
-//        assertThat(add.getSumOfOdds(rightBorder, leftBorder)).isEqualTo(25);
-//    }
+    @Test
+    public void should_get_sum_of_odds() {
+        //求leftBorder 和rightBorder之间的奇数和
+        int leftBorder = 1;
+        int rightBorder = 10;
+
+        Add add = new Add();
+        assertThat(add.getSumOfOdds(leftBorder, rightBorder)).isEqualTo(25);
+        assertThat(add.getSumOfOdds(rightBorder, leftBorder)).isEqualTo(25);
+    }
 
     @Test
     public void should_get_triple_and_add_two() {

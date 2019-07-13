@@ -62,10 +62,9 @@ public class Add {
     }
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-        List<Integer> even= arrayList.stream().filter(number -> number%2==0).sorted().collect(Collectors.toList());
-        List<Integer> odd= arrayList.stream().filter(number -> number%2!=0).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-        even.addAll(odd);
-        return even;
+        Stream<Integer> even= arrayList.stream().filter(number -> number%2==0).sorted();
+        Stream<Integer> odd= arrayList.stream().filter(number -> number%2!=0).sorted(Comparator.reverseOrder());
+        return Stream.concat(even, odd).collect(Collectors.toList());
     }
 
 //    public List<Integer> getProcessedList(List<Integer> arrayList) {

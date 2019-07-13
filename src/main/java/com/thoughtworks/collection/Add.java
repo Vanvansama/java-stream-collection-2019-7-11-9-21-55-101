@@ -2,10 +2,12 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
@@ -59,9 +61,12 @@ public class Add {
         return arrayList.stream().filter(number -> number%2==0).collect(Collectors.toList());
     }
 
-//    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-//        throw new NotImplementedException();
-//    }
+    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
+        List<Integer> even= arrayList.stream().filter(number -> number%2==0).sorted().collect(Collectors.toList());
+        List<Integer> odd= arrayList.stream().filter(number -> number%2!=0).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        even.addAll(odd);
+        return even;
+    }
 
 //    public List<Integer> getProcessedList(List<Integer> arrayList) {
 //        throw new NotImplementedException();

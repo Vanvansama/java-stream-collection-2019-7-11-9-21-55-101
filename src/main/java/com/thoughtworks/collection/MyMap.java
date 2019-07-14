@@ -23,11 +23,30 @@ public class MyMap {
     }
 
     public List<String> mapLetter() {
-        return array.stream().map(number->String.valueOf((char)(number+96))).collect(Collectors.toList());
+        return array.stream().map(number -> String.valueOf((char) (number + 96))).collect(Collectors.toList());
     }
 
     public List<String> mapLetters() {
-        throw new NotImplementedException();
+        return array.stream().map((number) -> {
+            String string = "";
+            for (; number > 26; number %= 26) {
+                if (number % 26 == 0) {
+                    string += (char) (number / 27 + 96);
+                } else {
+                    string += (char) (number / 26 + 96);
+                }
+
+            }
+            if (number < 26) {
+                if (number == 0) {
+                    string += (char) (number +26 + 96);
+                }else {
+                    string += (char) (number + 96);
+                }
+
+            }
+            return string;
+        }).collect(Collectors.toList());
     }
 
     public List<Integer> sortFromBig() {

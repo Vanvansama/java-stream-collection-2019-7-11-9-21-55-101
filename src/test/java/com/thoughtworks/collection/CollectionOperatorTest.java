@@ -66,7 +66,7 @@ public class CollectionOperatorTest {
 
         assertThat(collectionOperator.popLastElment(array)).isEqualTo(5);
     }
-//
+
 //    @Test
 //    public void should_pop_common_elements() {
 //        //弹出两个集合的交集
